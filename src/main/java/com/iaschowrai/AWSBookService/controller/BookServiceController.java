@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 @RestController
-@RequestMapping("/bookservice/api")
+@RequestMapping("/book-service/api")
 public class BookServiceController {
 
     public ResponseEntity<String> upload(@RequestParam("image")MultipartFile imager, @RequestParam String isbn,
