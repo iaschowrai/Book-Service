@@ -1,0 +1,22 @@
+version: '3.1' # Specifies the Docker Compose file version.
+
+services:
+  localstack: # Defines the 'localstack' service.
+    image: localstack/localstack:latest # Specifies the LocalStack Docker image and uses the latest version.
+    container_name: localstack # Assigns a specific name to the container for easy identification.
+    ports:
+      - "127.0.0.1:4566:4566" # Maps port 4566 on the host to port 4566 in the container for the LocalStack gateway.
+      - "127.0.0.1:4510-4559:4510-4559" # Maps ports 4510-4559 on the host to the same range in the container for AWS services.
+      - "127.0.0.1:443:443" # Maps port 443 on the host to port 443 in the container for HTTPS access.
+    hostname: localstack # Sets the hostname of the container to 'localstack'.
+    environment: # Defines environment variables to configure LocalStack.
+      - AWS_DEFAULT_REGION=us-east-1 # Sets the default AWS region to 'us-east-1'.
+      - AWS_ACCESS_KEY_ID=test # Mock AWS access key ID for authentication.
+      - AWS_SECRET_ACCESS_KEY=test # Mock AWS secret access key for authentication.
+      - DEBUG=1 # Enables debug mode for detailed logs.
+      - DOCKER_HOST=unix:///var/run/docker.sock # Allows LocalStack to interact with the Docker host socket.
+      - LS_LOG=WARN # Sets the logging level for LocalStack to 'WARN' (minimal logs).
+      - HOSTNAME_EXTERNAL=localstack # Configures the external hostname to be 'localstack'.
+      - SERVICES=s3,dynamodb,sqs # Specifies the AWS services to emulate (S3, DynamoDB, and SQS).
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock" # Mounts the Docker socket from the host to the container for communication.
