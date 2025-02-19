@@ -1,9 +1,9 @@
 # AWS Book Service
 
 This project is an AWS cloud-based Book Service application that leverages several AWS services to manage book-related data efficiently.
-The Book Service with AWS repository is designed to showcase how to build a cloud-native microservice that efficiently manages 
-book-related data using AWS services. It demonstrates real-world use cases of integrating AWS with a Spring Boot application, 
-making it a valuable resource for developers who want to learn cloud-based development, 
+The Book Service with AWS repository is designed to showcase how to build a cloud-native microservice that efficiently manages book-related data using AWS services. 
+It demonstrates real-world use cases of integrating AWS with a Spring Boot application, making it a valuable resource for developers who want to learn cloud-based development, 
+AWS service integration, and microservices architecture.
 
 ## Features
 
